@@ -40,6 +40,7 @@ resource "tfe_variable" "arm_client_id" {
   value        = var.arm_client_id
   category     = "env"
   workspace_id = tfe_workspace.ws.id
+  sensitive    = "true"
 }
 
 resource "tfe_variable" "arm_subscription_id" {
@@ -47,6 +48,7 @@ resource "tfe_variable" "arm_subscription_id" {
   value        = var.arm_subscription_id
   category     = "env"
   workspace_id = tfe_workspace.ws.id
+  sensitive    = "true"
 }
 
 resource "tfe_variable" "arm_client_secret" {
@@ -54,6 +56,7 @@ resource "tfe_variable" "arm_client_secret" {
   value        = var.arm_client_secret
   category     = "env"
   workspace_id = tfe_workspace.ws.id
+  sensitive    = "true"
 }
 
 resource "tfe_variable" "arm_tenant_id" {
@@ -61,4 +64,5 @@ resource "tfe_variable" "arm_tenant_id" {
   value        = var.arm_tenant_id
   category     = "env"
   workspace_id = tfe_workspace.ws.id
+  sensitive    = "true"
 }
