@@ -1,9 +1,31 @@
 provider "tfe" {
-
+  hostname = "app.terraform.io"
 }
 
 resource "tfe_workspace" "ws" {
-  name         = var.workspace-name
+  name         = "aa___${var.workspace-name}-prod"
+  organization = var.org
+
+  vcs_repo {
+    branch         = "master"
+    identifier     = var.vcs_identifier
+    oauth_token_id = var.oauth_token
+  }
+}
+
+resource "tfe_workspace" "ws-dev" {
+  name         = "aa___${var.workspace-name}-dev"
+  organization = var.org
+
+  vcs_repo {
+    branch         = "master"
+    identifier     = var.vcs_identifier
+    oauth_token_id = var.oauth_token
+  }
+}
+
+resource "tfe_workspace" "ws-qa" {
+  name         = "aa___${var.workspace-name}-qa"
   organization = var.org
 
   vcs_repo {
